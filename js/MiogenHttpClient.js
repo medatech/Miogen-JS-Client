@@ -55,7 +55,7 @@ Miogen.MiogenHttpClient = new (Class.extend({
                     }
                 });
                 
-                callback(0, doc, jqXHR);
+                callback(jqXHR.status, doc, jqXHR);
             }
         });
     }
