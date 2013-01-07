@@ -45,5 +45,18 @@ Miogen.MiogenDataField = Class.extend({
     
     getPrompt: function () {
         return this.data.prompt || null;
+    },
+    
+    getChoiceOptions: function () {
+        var options = [];
+        
+        if (this.data.options) {
+            options = this.data.options;
+        }
+        return options;
+    },
+    
+    isRequired: function () {
+        return this.data.hasOwnProperty('required') ? this.data.required : true;
     }
 });

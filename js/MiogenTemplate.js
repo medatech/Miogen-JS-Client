@@ -31,5 +31,13 @@ Miogen.MiogenTemplate = Class.extend({
         else {
             return null;
         }
+    },
+    
+    getPrompt: function () {
+        return this.template.prompt || null;
+    },
+    
+    getAdditionalInfo: function () {
+        return this.template.additionalInfo || null;
     }
 });
