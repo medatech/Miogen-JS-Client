@@ -31,6 +31,10 @@ Miogen.MiogenDocument = Class.extend({
         else {
             return null;
         }
+    },
+
+    getErrors: function () {
+        return objectQuery(this.doc, 'collection.errors', []);
     }
     
 });

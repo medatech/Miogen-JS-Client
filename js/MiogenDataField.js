@@ -19,6 +19,10 @@ Miogen.MiogenDataField = Class.extend({
     getType: function () {
         return this.data.type || null;
     },
+
+    getRel: function () {
+        return this.data.rel || null;
+    },
     
     getFields: function () {
         var fieldName, fields = [];
@@ -62,5 +66,21 @@ Miogen.MiogenDataField = Class.extend({
     
     isRequired: function () {
         return this.data.hasOwnProperty('required') ? this.data.required : true;
+    },
+
+    isReadOnly: function () {
+        return this.data.hasOwnProperty('readOnly') ? this.data.readOnly : false;
+    },
+
+    setValue: function (value) {
+        this.data.value = value;
+    },
+
+    getValue: function () {
+        return this.data.hasOwnProperty('value') ? this.data.value : this.getDefaultValue();
+    },
+
+    getDefaultValue: function () {
+        return this.data.hasOwnProperty('defaultValue') ? this.data.defaultValue : null;
     }
 });
