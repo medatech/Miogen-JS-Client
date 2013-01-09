@@ -1,9 +1,14 @@
-if (typeof (Miogen) === 'undefined') {
-    Miogen = {};
-}
+/*global Miogen, $, window, Class */
+(function () {
+    "use strict";
 
-Miogen.MiogenTemplate = Miogen.MiogenDataField.extend({
-    init: function (template) {
-        this._super(null, template);
+    if (window.Miogen === undefined) {
+        window.Miogen = {};
     }
-});
+
+    Miogen.MiogenTemplate = Miogen.MiogenDataField.extend({
+        init: function (template) {
+            this._super(null, template);
+        }
+    });
+}());
