@@ -6,14 +6,24 @@ Miogen.MiogenDataField = Class.extend({
     
     name: null,
     data: null,
+    absoluteName: null,
     
-    init: function (name, data) {
+    init: function (name, data, absoluteName) {
+        if (typeof (absoluteName) === 'undefined') {
+            absoluteName = name === null ? '' : name;
+        }
+
         this.name = name;
         this.data = data;
+        this.absoluteName = absoluteName;
     },
     
     getName: function () {
         return this.name;
+    },
+
+    getAbsoluteName: function () {
+        return this.absoluteName;
     },
     
     getType: function () {
@@ -30,7 +40,7 @@ Miogen.MiogenDataField = Class.extend({
         if (this.data.data) {
             for (fieldName in this.data.data) {
                 if (this.data.data.hasOwnProperty(fieldName)) {
-                    fields.push(new Miogen.MiogenDataField(fieldName, this.data.data[fieldName]));
+                    fields.push(new Miogen.MiogenDataField(fieldName, this.data.data[fieldName], (this.absoluteName === '' ? '' : this.absoluteName + '.') + fieldName));
                 }
             }
         }
@@ -40,7 +50,7 @@ Miogen.MiogenDataField = Class.extend({
     
     getField: function (name) {
         if (this.data.data && this.data.data.hasOwnProperty(name)) {
-            return new Miogen.MiogenDataField(name, this.data.data[name]);
+            return new Miogen.MiogenDataField(name, this.data.data[name], (this.absoluteName === '' ? '' : this.absoluteName + '.') + name);
         }
         else {
             return null;
