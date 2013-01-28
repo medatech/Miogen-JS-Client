@@ -97,6 +97,33 @@
 
         getDefaultValue: function () {
             return this.data.hasOwnProperty('defaultValue') ? this.data.defaultValue : null;
+        },
+
+        getProperty: function (key, defaultValue) {
+            if (defaultValue === undefined) {
+                defaultValue = null;
+            }
+
+            return this.data.hasOwnProperty(key) ? this.data[key] : defaultValue;
+        },
+
+        attr: function (key, defaultValue) {
+            if (defaultValue === undefined) {
+                defaultValue = null;
+            }
+            return this.data.hasOwnProperty(key) ? this.data[key] : defaultValue;
+        },
+
+        getMin: function () {
+            return this.attr('min');
+        },
+
+        getMax: function () {
+            return this.attr('max');
+        },
+
+        getDecimals: function () {
+            return this.attr('decimals');
         }
     });
 
