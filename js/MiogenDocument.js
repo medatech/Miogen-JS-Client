@@ -40,6 +40,15 @@
             return ret;
         },
 
+        getTemplate: function () {
+            var template = null,
+                templates = objectQuery(this.doc, 'collection.templates');
+            if (templates !== null && templates.length > 0) {
+                template = new Miogen.MiogenTemplate(templates[0]);
+            }
+            return template;
+        },
+
         getErrors: function () {
             return objectQuery(this.doc, 'collection.errors', []);
         }
