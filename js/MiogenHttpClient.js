@@ -14,7 +14,7 @@
         },
 
         doPost: function (url, saveData, callback) {
-            this.callServer('PUT', url, saveData, callback);
+            this.callServer('POST', url, saveData, callback);
         },
 
         doPut: function (url, saveData, callback) {
