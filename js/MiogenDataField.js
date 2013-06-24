@@ -99,6 +99,10 @@
             return this.data.hasOwnProperty('defaultValue') ? this.data.defaultValue : null;
         },
 
+        getHelpText: function () {
+            return this.data.hasOwnProperty('helpText') ? this.data.helpText : null;
+        },
+
         getProperty: function (key, defaultValue) {
             if (defaultValue === undefined) {
                 defaultValue = null;
